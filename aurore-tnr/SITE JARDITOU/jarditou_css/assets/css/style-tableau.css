@@ -1,0 +1,78 @@
+:root {
+    --color-array: rgb(252, 204, 115);
+}
+
+h1{
+    margin: 20px 0;
+}
+
+
+/* TABLEAU */
+
+.container-tableau {
+    display: flex;
+    justify-content: center;
+}
+
+
+.tableau {
+    width: 100%;
+}
+
+.entete-tableau {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.tableau th,
+.tableau td {
+  border: solid 1px #ccc;
+  text-align: center;
+  color: #333;
+  font-size: 20px;
+}
+
+.tableau tr:nth-child(odd){
+    background: var(--color-array);
+}
+
+.img-produit {
+    width: 150px;
+    vertical-align: middle;
+}
+
+
+
+
+/* ============== */
+
+/* MEDIA QUERY */
+
+
+@media screen and (max-width: 682px){
+
+    /* IMAGE PRODUIT */
+
+
+    .entete-tableau {
+        font-weight: 600;
+    }
+
+    .tableau th,
+    .tableau td {
+    border: solid 1px #ccc;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+    }
+
+    .img-produit {
+        width: 50px;
+    }
+
+}
+
+
+
+
+

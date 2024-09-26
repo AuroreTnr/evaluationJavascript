@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarditou Contact</title>
+    <link rel="stylesheet" href="jarditou_css/assets/css/style-commun.css">
+    <link rel="stylesheet" href="jarditou_css/assets/css/style-contact.css">
+</head>
+<body>
+
+
+    <!-- HEADER -->
+    <header>
+        <div class="banniere-logo">
+            <img src="jarditou_css/assets/src/img/jarditou_logo.jpg" alt="logo du site" class="logo">
+            <p class="slogan">Tout le jardin</p>
+        </div>
+
+
+        <!-- NAVIGATION -->
+            <nav class="nav-header">
+                <a href="#" class="jarditou-logo
+                ">Jarditou</a>
+                <a href="accueil.html" target="_blank">Accueil</a>
+                <a href="tableau.html" target="_blank">Nos produits</a>
+                <a href="contact.html" target="_blank">Contact</a>
+                <a href="a-propos.html" target="_blank">A propos</a>
+                <a href="mon-compte.html" target="_blank">Mon compte</a>
+
+                <div class="burger-btn">
+                    <span class="line l1"></span>
+                    <span class="line l2"></span>
+                    <span class="line l3"></span>
+                </div>
+
+            </nav>
+
+            <div class="box"><img src="jarditou_css/assets/src/img/promotion.jpg" alt="Promotion sur les lames de terrasse" class="banniere-promo"></div>
+    </header>
+
+
+    <!-- SECTION CONTACT -->
+    
+    <section>
+    <h1 class="main-title">Contact</h1>
+    <hr>
+
+        <form action="http://bienvenu.net/script.php" method="post" enctype="multipart/form-data">
+
+            <!-- COORDONNEES -->
+            <div class="container-contact">
+                <p>* Ces zones sont obligatoires</p>
+
+                <fieldset>
+                    <legend>Vos coordonnées</legend>
+
+                    <label for="name">Votre nom : *</label> 
+                    <input type="text" id="name" name="name" required="required" placeholder="Votre nom"> 
+                
+                    <label for="prenom">Votre prénom : *</label> 
+                    <input type="text" id="prenom" name="prenom" required="required" placeholder="Votre prénom"> 
+                    
+                    <!-- RADIO BTN -->
+                    <span>Sexe : *</span>
+                    <div class="input-radio">
+                        <input type="radio" value="feminin" name="genre" id="feminin">
+                        <label for="feminin">Féminin</label>
+                        <input type="radio" value="masculin" name="genre" id="masculin">
+                        <label for="masculin">Masculin</label>
+                    </div>
+                    
+                
+                    <label for="dateNaissance">Date de naissance : *</label> 
+                    <input type="date" id="dateNaissance" name="dateNaissance" required="required"> 
+                
+                    <label for="codePostal">Code Postal : *</label> 
+                    <input type="text" id="codePostal" name="codePostal" required="required" placeholder="Votre code postal"> 
+                
+                    <label for="adresse">Adresse : *</label> 
+                    <input type="text" id="adresse" name="adresse" required="required"> 
+                
+                    <label for="ville">Ville : *</label> 
+                    <input type="text" id="ville" name="ville" required="required"> 
+                
+                    <label for="email">Email : *</label> 
+                    <input type="email" id="email" name="email" placeholder="dave.loper@afpa.fr" required="required"> 
+                </fieldset>
+                
+                <!-- MESSAGE -->
+                <fieldset>
+                    <legend>Votre demande</legend>
+                    <label for="selectList">Sujet : *</label>
+                    <select name="sujetList" id="selectList">
+                        <option value="-" selected>Veuillez séléctionner un sujet</option>
+                        <option value="mescommandes">Mes commandes</option>
+                        <option value="question">Question sur un produit</option>
+                        <option value="reclamation">Réclamation</option>
+                        <option value="autre">Autres</option>
+                    </select> <br>
+
+                    <label for="message">Votre question : *</label>
+                    <textarea name="message" id="message" required="required"></textarea>
+                </fieldset>
+
+
+                <div class="input-radio">
+                    <input type="checkbox" id="checkCondition" required="required">
+                    <label for="checkCondition">* J' accepte le traitement informatique de ce formulaire</label>
+                </div>
+    
+            <div class="btn">
+                <button>Envoyer</button>
+                <button>Annuler</button>
+            </div>
+            </div>
+
+
+            
+        </form>
+    </section>
+
+    <!--  FOOTER -->
+    <footer>
+            
+        <nav class="nav-footer">
+            <a href="#">Mentions legales</a>
+            <a href="#">Horaires</a>
+            <a href="#">Plan du site</a>
+        </nav>
+    </footer>
+    
+    
+    <script src="jarditou_css/assets/js/script.js"></script>
+
+        
+</body>
+</html>

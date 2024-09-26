@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarditou Connexion</title>
+    <link rel="stylesheet" href="jarditou_css/assets/css/style-commun.css">
+    <link rel="stylesheet" href="jarditou_css/assets/css/style-mon-compte.css">
+</head>
+<body>
+
+
+    <!-- HEADER -->
+    <header>
+        <div class="banniere-logo">
+            <img src="jarditou_css/assets/src/img/jarditou_logo.jpg" alt="logo du site" class="logo">
+            <p class="slogan">Tout le jardin</p>
+        </div>
+
+
+        <!-- NAVIGATION -->
+            <nav class="nav-header">
+                <a href="#" class="jarditou-logo
+                ">Jarditou</a>
+                <a href="accueil.html" target="_blank">Accueil</a>
+                <a href="tableau.html" target="_blank">Nos produits</a>
+                <a href="contact.html" target="_blank">Contact</a>
+                <a href="a-propos.html" target="_blank">A propos</a>
+                <a href="mon-compte.html" target="_blank">Mon compte</a>
+
+                <div class="burger-btn">
+                    <span class="line l1"></span>
+                    <span class="line l2"></span>
+                    <span class="line l3"></span>
+                </div>
+
+            </nav>
+
+            <div class="box"><img src="jarditou_css/assets/src/img/promotion.jpg" alt="Promotion sur les lames de terrasse" class="banniere-promo"></div>
+    </header>
+
+
+    <!-- SECTION CONTACT -->
+    
+    <div class="container-connexion">
+        <p>* Ces zones sont obligatoires</p>
+        <p> Vous n' avez pas de compte ? <a href="#"> Vous inscrires</a></p>
+        <p> Vous avez oublié votre mot de passe ? <a href="#"> Réinitialiser votre mot de passe</a></p>
+
+        <form action="http://bienvenu.net/script.php" method="post" enctype="multipart/form-data">
+
+            <h2>Connexion</h2>
+
+            <label for="email">Email* :</label>
+            <input type="email" id="email" name="email" placeholder="Votre Email" required="required">
+
+            <label for="password">Mot de passe* :</label>
+            <input type="password" id="password" name="name" required="required" placeholder="Votre mot de passe">
+        
+                
+            <div class="input-checkbox">
+                <input type="checkbox" id="checkCondition" name="checkCondition" required="required">
+                <label for="checkCondition">Se souvenir de moi</label>
+            </div>
+            
+
+            <div class="btn">
+                <button>Connexion</button>
+                <button>Annuler</button>
+            </div>
+            
+        </form>
+    </div>
+
+    <!--  FOOTER -->
+    <footer>
+            
+        <nav class="nav-footer">
+            <a href="#">Mentions legales</a>
+            <a href="#">Horaires</a>
+            <a href="#">Plan du site</a>
+        </nav>
+    </footer>
+    
+        
+
+    <script src="jarditou_css/assets/js/script.js"></script>
+
+</body>
+</html>
