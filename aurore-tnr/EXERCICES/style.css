@@ -1,0 +1,130 @@
+*, ::before, ::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #cccccc;
+    color: #333;
+}
+
+h1{
+    font-size: calc(3vmin + 10px);
+    text-align: center;
+    padding: 15px;
+    margin: 50px 0;
+    text-decoration: underline;
+}
+
+.container{
+    margin: 0 auto;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* SECTION QUESTION */
+
+.question{
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 30px 20px;
+
+}
+
+.question * {
+    margin-top: 20px;
+    font-size: calc(1vmin + 10px);
+}
+
+.subtitle{
+    font-size: calc(3vmin + 3px);
+}
+
+.enonce{
+    line-height: 1.4;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* BUTTON FONCTIONS */
+input[type="button"]{
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    border-bottom: 2px solid #333;
+}
+
+/* REPONSE */
+.reponse{
+    font-weight: 600;
+}
+
+/* LIENS EXERCICE 5 */
+
+ul {
+    display: flex;
+    justify-content: space-around;
+}
+ul li{
+    list-style: none;
+}
+
+.links a {
+    padding: 10px 0;
+    color: rgb(87, 87, 240);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+
+/* BUTTON FLOAT */
+
+.btn-float{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 15px;
+    right: 10px;
+    font-size: 20px;
+    background: #f1f1f1;
+    z-index: 10;
+}
+
+/* ANIMATION BUTTON FLOAT */
+
+.btn-float::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    background: #f1f1f1;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    animation: pulse 2.3s ease-in-out 2s infinite;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.3);
+        opacity: 0;
+        
+    }
+}
+
+
+

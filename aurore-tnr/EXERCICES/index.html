@@ -8,31 +8,103 @@
 </head>
 <body>
     
+    
     <h1>Evaluation Javascript pour les groupes TB</h1>
 
+    <div class="container">
+    
+        <!-- QUESTION 1 -->
+        <section class="question question1">
+            <h2 class="subtitle">Exercice 1 : calcul du nombre de jeunes, de moyens et de vieux</h2>
+            <p class="enonce enonce1">
+                Il s'agit de dénombrer les personnes d'âge strictement inférieur à 20 ans, les personnes d'âge strictement supérieur à 40 ans et celles dont l'âge est compris entre 20 ans et 40 ans (20 ans et 40 ans y compris).
+                Le programme doit demander les âges successifs.
+                Le comptage est arrêté dès la saisie d'un centenaire. Le centenaire est compté.
+                Donnez le programme Javascript correspondant qui affiche les résultats.
+            </p>
+            <input type="button" value="Cliquer pour activer la fonction" id="exo-1">
+            <p class="reponse reponse1"></p>
+    
+        </section>
+    
+        <!-- QUESTION 2 -->
+        <section class="question question2">
+            <h2 class="subtitle">Exercice 2 : table de multiplication</h2>
+            <p class="enonce enonce2">
+                Ecrivez une fonction qui affiche une table de multiplication.
 
+                Votre fonction doit prendre un paramètre qui permet d'indiquer quelle table afficher.
+                
+                Par exemple, TableMultiplication(7) doit afficher :
+                
+                1 x 7 = 7
+                
+                2 x 7 = 14
+                
+                3 x 7 = 21 ...
 
-    <div>
-        <h2 class="subtitle">Exercice 1 : calcul du nombre de jeunes, de moyens et de vieux</h2>
+            </p>
+            <input type="button" value="Cliquer pour activer la fonction" id="exo-2">
+            <ul class="reponse reponse2"></ul>
+
+        </section>
+    
+        <!-- QUESTION 3 -->
+        <section class="question question3">
+            <h2 class="subtitle">Exercice 3 : recherche d' un prénom</h2>
+            <p class="enonce enonce3">
+                Un prénom est saisi au clavier. On le recherche dans le tableau tab donné ci-après.
+
+                Si le prénom est trouvé, on l'élimine du tableau en décalant les cases qui le suivent, et en mettant à blanc la dernière case. Si le prénom n'est pas trouvé un message d'erreur apparait et aucun prénom ne se supprime.
+
+            </p>
+            <input type="button" value="Cliquer pour activer la fonction" id="exo-3">
+            <p class="reponse reponse3"></p>
+
+        </section>
+    
+        <!-- QUESTION 4 -->
+        <section class="question question4">
+            <h2 class="subtitle">Exercice 4 : total d' une commande</h2>
+            <p class="enonce enonce4">
+                A partir de la saisie du prix unitaire noté PU d'un produit et de la quantité commandée QTECOM, afficher le prix à payer PAP, en détaillant la remise REM et le port PORT, sachant que :
+
+                TOT = ( PU * QTECOM )
+                la remise est de 5% si TOT est compris entre 100 et 200 € et de 10% au-delà
+                le port est gratuit si le prix des produits ( le total remisé ) est supérieur à 500 €. Dans le cas contraire, le port est de 2%
+                la valeur minimale du port à payer est de 6 €
+                Testez tous les cas possibles afin de vous assurez que votre script fonctionne.
+
+            </p>
+            <input type="button" value="Cliquer pour activer la fonction" id="exo-4">
+            <p class="reponse reponse4"></p>
+
+        </section>
+    
+        <!-- QUESTION 5 -->
+        <section class="question question5">
+            <h2 class="subtitle">Exercice 5 : vérification d' un formulaire</h2>
+            <p class="enonce enonce5">
+                Effectuez le contrôle de saisie de votre formulaire Jarditou en Javascript.
+
+                Lorsqu'une erreur est détectée, l'utilisateur doit en être informé grâce à l'affichage d'un message sous le champ concerné.
+                
+                Le formulaire ne peut être envoyé que lorsque tout est bon.
+            </p>
+
+            <div class="links">
+                <ul>
+                    <li><a href="../SITE_JARDITOU/contact.html">Index de la page contact</a>
+                    </li>
+                    <li><a href="../SITE_JARDITOU/jarditou_css/assets/js/script.js">Script de la page contact</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
     </div>
 
-    <div>
-        <h2 class="subtitle">Exercice 2 : table de multiplication</h2>
-    </div>
-
-    <div>
-        <h2 class="subtitle">Exercice 3 : recherche d' un prénom</h2>
-    </div>
-
-    <div>
-        <h2 class="subtitle">Exercice 4 : total d' une commande</h2>
-    </div>
-
-    <div>
-        <h2 class="subtitle">Exercice 5 : vérification d' un formulaire</h2>
-        <a href="../SITE JARDITOU/contact.html">Index de la page contact</a>
-        <a href="../SITE JARDITOU/jarditou_css/assets/js/script.js">Script de la page contact</a>
-    </div>
+    <button class="btn-float">up</button>
 
 
 
