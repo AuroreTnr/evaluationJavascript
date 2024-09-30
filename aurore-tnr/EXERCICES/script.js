@@ -102,75 +102,76 @@ function searchPrenom() {
 
 
 // Exercice 4 : total d'une commande
-const btnExo4 = document.querySelector("#exo-4");
-const reponse4 = document.querySelector(".reponse4");
-btnExo4.addEventListener("click", prixPap);
+// const btnExo4 = document.querySelector("#exo-4");
+// const reponse4 = document.querySelector(".reponse4");
+// btnExo4.addEventListener("click", prixPap);
 
-function prixPap(){
-    // DATA
-    let pu = parseInt(prompt("Entrez lz prix unitaire :"));
-    let qtecom = parseInt(prompt("Entrez la quantité"));
+// function prixPap(){
+//     // DATA
+//     let pu = parseInt(prompt("Entrez lz prix unitaire :"));
+//     let qtecom = parseInt(prompt("Entrez la quantité"));
     
     
-    // REMISE
-    let remise;
+//     // REMISE
+//     let remise;
     
     
-    // PRIX UNITAIRE / QUANTITÉ
-    let tot = pu * qtecom;
-    console.log(tot);
+//     // PRIX UNITAIRE / QUANTITÉ
+//     let tot = pu * qtecom;
+//     console.log(tot);
     
-    // MONTANT DE LA REMISE
-    let montantDeLaRemise = tot - (remise/100);
-    console.log(montantDeLaRemise);
+//     // MONTANT DE LA REMISE
+//     let montantDeLaRemise = tot - (remise/100);
+//     console.log(montantDeLaRemise);
     
-    //PRIX AVEC REMISE
-    let prixAvecRemise = tot - montantDeLaRemise;
-    console.log(prixAvecRemise);
-    
-    
-    
-    
-    if (tot > 99 && tot < 199) {
-        remise = 5;
-        console.log(remise);
-    }else if (tot > 200){
-        remise = 10;
-        console.log(remise);
-    }else if (tot < 100) {
-        remise = 0;
-        console.log(remise);
-    }
-    
-    // CALCUL DES FRAIS DE PORT
-    else if (fraisDePort > 500) {
-        fraisDePort = 0;
-    }
-    else if (fraisDePort< 500) {
-        fraisDePort = prixAvecRemise + (2 / 100)
-    }
-    else if (fraisDePort< 6) {
-        fraisDePort = 6;
-    }else{
-        return "ici"
-    }
+//     //PRIX AVEC REMISE
+//     let prixAvecRemise = tot - montantDeLaRemise;
+//     console.log(prixAvecRemise);
     
     
     
-    // FRAIS DE PORT
-    let fraisDePort = 6;
-    console.log(fraisDePort);
     
-    // TOTAL
-    let total = prixAvecRemise + fraisDePort;
-    console.log(total);
+//     if (tot > 99 && tot < 199) {
+//         remise = 5;
+//         console.log(remise);
+//     }else if (tot > 200){
+//         remise = 10;
+//         console.log(remise);
+//     }else if (tot < 100) {
+//         remise = 0;
+//         console.log(remise);
+//     }
+    
+//     // CALCUL DES FRAIS DE PORT
+//     else if (fraisDePort > 500) {
+//         fraisDePort = 0;
+//     }
+//     else if (fraisDePort< 500) {
+//         fraisDePort = prixAvecRemise + (2 / 100)
+//     }
+//     else if (fraisDePort< 6) {
+//         fraisDePort = 6;
+//     }else{
+//         return "ici"
+//     }
+    
+    
+    
+//     // FRAIS DE PORT
+//     let fraisDePort = 6;
+//     console.log(fraisDePort);
+    
+//     // TOTAL
+//     let total = prixAvecRemise + fraisDePort;
+//     console.log(total);
     
 
 
 
-    reponse4.textContent = `remise ${remise}% (- ${montantDeLaRemise}€) soit ${prixAvecRemise} et frais de port ${fraisDePort} à payer : ${total}`
-}
-prixPap()
+//     reponse4.textContent = `remise ${remise}% (- ${montantDeLaRemise}€) soit ${prixAvecRemise} et frais de port ${fraisDePort} à payer : ${total}`
+// }
+// prixPap()
+//BLOQUEE
 
 
 

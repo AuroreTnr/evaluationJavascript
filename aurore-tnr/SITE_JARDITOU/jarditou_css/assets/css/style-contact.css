@@ -25,10 +25,15 @@ label, input, select, textarea {
     max-width: 85%;
     display: block;
     padding: 5px;
-    margin: 10px 5px;
+    margin: 5px 5px;
     border-radius: 5px;
     border-color: #ccc;
     font-size: 16px;
+}
+
+span{
+    padding: 5px;
+    margin-left: 5px;
 }
 
 .input-radio {
@@ -50,7 +55,11 @@ legend {
 
 /* BUTTON */
 
-button {
+.btn{
+    display: flex;
+}
+
+input[type="submit"], input[type="reset"]{
     padding: 15px;
     border: none;
     cursor: pointer;
@@ -61,7 +70,8 @@ button {
     margin: 20px 5px;
 }
 
-button:first-of-type {
+
+input[type="reset"] {
     background: var(--color-navbar);
 }
 
@@ -69,7 +79,8 @@ button:first-of-type {
 /* ANIMATION BUTTON */
 
 
-button:first-of-type:hover {
+input[type="submit"]:hover, input[type="reset"]:hover {
+    background: #f1f1f1;
     color: #333;
 }
 
@@ -83,7 +94,6 @@ input:focus {
 input[type="radio"], input[type="checkbox"] {
     box-shadow: none;
 }
-
 
 
 
@@ -121,7 +131,6 @@ input[type="radio"], input[type="checkbox"] {
     /* BTN FORM */
     
     .btn {
-        display: flex;
         justify-content: center;
 
     }

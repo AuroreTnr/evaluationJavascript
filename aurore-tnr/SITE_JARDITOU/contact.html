@@ -46,7 +46,7 @@
     <h1 class="main-title">Contact</h1>
     <hr>
 
-        <form action="http://bienvenu.net/script.php" method="post" enctype="multipart/form-data">
+        <form action="http://bienvenu.net/script.php" method="post" enctype="multipart/form-data" id="form-contact">
 
             <!-- COORDONNEES -->
             <div class="container-contact">
@@ -54,65 +54,72 @@
 
                 <fieldset>
                     <legend>Vos coordonnées</legend>
-
-                    <label for="name">Votre nom : *</label> 
-                    <input type="text" id="name" name="name" required="required" placeholder="Votre nom"> 
-                
-                    <label for="prenom">Votre prénom : *</label> 
-                    <input type="text" id="prenom" name="prenom" required="required" placeholder="Votre prénom"> 
                     
-                    <!-- RADIO BTN -->
+                    <span id="error-msg" class="error-name"></span>
+                    <label for="name">Votre nom : *</label> 
+                    <input type="text" id="name" name="name" placeholder="Votre nom" maxlength="20" autofocus required> 
+                
+                    <span id="error-msg" class="error-prenom"></span>
+                    <label for="prenom">Votre prénom : *</label> 
+                    <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" maxlength="20"required> 
+                    
+                    <!-- RADIO BTN GENRE -->
                     <span>Sexe : *</span>
                     <div class="input-radio">
-                        <input type="radio" value="feminin" name="genre" id="feminin">
+                        <input type="radio" value="feminin" name="genre" id="feminin" required oninvalid="this.setCustomValidity('Veuillez selectionnez un genre')">
                         <label for="feminin">Féminin</label>
-                        <input type="radio" value="masculin" name="genre" id="masculin">
+                        <input type="radio" value="masculin" name="genre" id="masculin" required>
                         <label for="masculin">Masculin</label>
                     </div>
                     
+
+                    <label for="dateNaissance">Date de naissance : *</span></label> 
+                    <input type="date" id="dateNaissance" name="dateNaissance" required oninvalid="this.setCustomValidity('Veuillez selectionnez votre date de naissance')"> 
                 
-                    <label for="dateNaissance">Date de naissance : *</label> 
-                    <input type="date" id="dateNaissance" name="dateNaissance" required="required"> 
-                
+                    <span id="error-msg" class="error-codePostal"></span>
                     <label for="codePostal">Code Postal : *</label> 
-                    <input type="text" id="codePostal" name="codePostal" required="required" placeholder="Votre code postal"> 
+                    <input type="number" id="codePostal" name="codePostal" placeholder="Votre code postal" required> 
                 
+                    <span id="error-msg"class="error-adresse"></span>
                     <label for="adresse">Adresse : *</label> 
-                    <input type="text" id="adresse" name="adresse" required="required"> 
+                    <input type="text" id="adresse" name="adresse" required> 
                 
+                    <span id="error-msg" class="error-ville"></span>
                     <label for="ville">Ville : *</label> 
-                    <input type="text" id="ville" name="ville" required="required"> 
+                    <input type="text" id="ville" name="ville" required> 
                 
+                    <span id="error-msg" class="error-email"></span>
                     <label for="email">Email : *</label> 
-                    <input type="email" id="email" name="email" placeholder="dave.loper@afpa.fr" required="required"> 
+                    <input type="email" id="email" name="email" placeholder="dave.loper@afpa.fr" required> 
                 </fieldset>
                 
                 <!-- MESSAGE -->
                 <fieldset>
                     <legend>Votre demande</legend>
                     <label for="selectList">Sujet : *</label>
-                    <select name="sujetList" id="selectList">
-                        <option value="-" selected>Veuillez séléctionner un sujet</option>
+                    <select name="sujetList" id="selectList" required oninvalid="this.setCustomValidity('Veuillez selectionnez le sujet de votre demande')">
+                        <option value="">Veuillez séléctionner un sujet</option>
                         <option value="mescommandes">Mes commandes</option>
                         <option value="question">Question sur un produit</option>
                         <option value="reclamation">Réclamation</option>
                         <option value="autre">Autres</option>
                     </select> <br>
 
-                    <label for="message">Votre question : *</label>
-                    <textarea name="message" id="message" required="required"></textarea>
+                    <span id="error-msg" class="error-message"></span>
+                    <label for="message">Votre question : * </span></label>
+                    <textarea name="message" id="message" required></textarea>
                 </fieldset>
 
 
                 <div class="input-radio">
-                    <input type="checkbox" id="checkCondition" required="required">
-                    <label for="checkCondition">* J' accepte le traitement informatique de ce formulaire</label>
+                    <input type="checkbox" id="checkCondition" required>
+                    <label for="checkCondition" oninvalid="this.setCustomValidity('Veuillez accepter le traitement informatique')">* J' accepte le traitement informatique de ce formulaire</label>
                 </div>
     
-            <div class="btn">
-                <button>Envoyer</button>
-                <button>Annuler</button>
-            </div>
+                <div class="btn">
+                    <input type="submit" value="Envoyer" id="btn-submit">
+                    <input type="reset" value="Annuler" id="btn-reset">
+                </div>
             </div>
 
 
