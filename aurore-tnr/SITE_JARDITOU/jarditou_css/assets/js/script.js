@@ -31,7 +31,7 @@ const btnReset = document.querySelector("#btn-reset");
 const charValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
 const postalValid = /^([0-9]{5})+$/;
 const emailValid = /^[a-z0-9.-]+@[a-z0-9.-]{2,}.[a-z]{2,4}$/;
-const adresseValid = /^[0-9]+(bis )?[_a-zA-Z- ]([_a-zA-Z- ]+[_a-zA-Z- ]+[_a-zA-Z-]+)$/;
+const adresseValid = /^[0-9]+(bis )?(ter )?(A )?(B )?[_a-zA-Z- ]([_a-zA-Z- ]+[_a-zA-Z- ]+[_a-zA-Z-]+)$/;
 
 
 
@@ -243,6 +243,88 @@ function clickReset(){
     
     allErrorMessage.forEach(span => span.textContent="");
 }
+
+
+// APPEL API AUTO COMPLET ADRESSE
+const div = document.querySelector("#selection")
+const adresseAuto = document.querySelector("#adresse-autocomplete")
+// console.log(adresseAuto);
+
+adresseAuto.addEventListener("input", adresseAutoComplete);
+
+async function adresseAutoComplete() {
+    const response = await fetch("https://api-adresse.data.gouv.fr/search/?q=8+bd+du+port&limit=15");
+    console.log(response);
+
+    const data = await response.json();
+    const dataFeatures = data.features;
+    console.log(dataFeatures);
+
+    const ul = document.querySelector("ul");
+    const li = document.createElement("li");
+    ul.appendChild(li)
+
+    for(const element of dataFeatures){
+        console.dir(element.properties.street);
+        console.dir(element.properties.context);
+        console.dir(element.properties.city);
+        console.dir(element.properties.citycode);
+
+        
+        
+        console.log(dataFeatures.filter(element => element == element));
+        
+    }
+
+
+
+    // console.log(data);
+    
+
+}
+
+// properties [{}]
+// : 
+// city
+// : 
+// "Cergy"
+// citycode
+// : 
+// "95127"
+// context
+// : 
+// "95, Val-d'Oise, Île-de-France"
+// housenumber
+// : 
+// "8"
+// id
+// : 
+// "95127_1448_00008"
+// importance
+// : 
+// 0.67801
+// label
+// : 
+// "8 Boulevard du Port 95000 Cergy"
+// name
+// : 
+// "8 Boulevard du Port"
+// postcode
+// : 
+// "95000"
+// score
+// : 
+// 0.4922592822966506
+// street
+// : 
+// "Boulevard du Port"
+// type
+// : 
+// "housenumber"
+    
+    
+
+
 
 
 
