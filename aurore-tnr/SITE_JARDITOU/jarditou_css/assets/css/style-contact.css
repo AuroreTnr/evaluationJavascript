@@ -95,6 +95,13 @@ input[type="radio"], input[type="checkbox"] {
     box-shadow: none;
 }
 
+/* LI AUTO COMPLET ADRESSE */
+
+li{
+    list-style-type: none;
+    margin: 10px 15px;
+}
+
 
 
 
