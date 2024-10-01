@@ -238,73 +238,82 @@ adresse.addEventListener("input", adresseAutoComplete);
 const selectAdresse = document.querySelector("#select-adresse")
 // console.log(selectAdresse);
 
+let arr = [];
 
-async function adresseAutoComplete() {
+async function adresseAutoComplete(arr) {
     // CUSTOM Q EN FONCTION DE LA VALUE DE L INPUT
-    const value = adresse.value;
-    const suppSpace = value.replaceAll(" ", "+")
+    const valueBrut = adresse.value;
+    const values = valueBrut.replaceAll(" ", "+")
 
     //APPEL API
-    const response = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${suppSpace}&limit=5`);
+    const response = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${values}`);
     // console.log(response);
 
     // CONVERSION JSON -> JS
     const data = await response.json();
 
     // LIEU OU CHERCHER LES DATAS
+    
     const dataFeatures = data.features;
     // console.log(dataFeatures);
-
-
-    let arr = [];
+    
+    
+    
+    arr = [];
 
     for(const element of dataFeatures){
-        // console.log(element.properties.street);
-        // console.log(element.properties.context);
-        // console.log(element.properties.city);
-        // console.log(element.properties.postcode);
-        // console.log(element.properties.id);
-        // Boulevard du Port
-        //  80, Somme, Hauts-de-France
-        //  Amiens
-        //  80021   
+    
 
         
         arr.push(element.properties.city) 
+
         
     }
 
-
-
+    suite(arr)
     
-    const arrFilter = arr.sort().filter((item, pos, ary) => !pos || item != ary[pos - 1]).slice(" ");
-    
-    arrFilter.forEach(elements => {
-
-        console.log(elements);
-
-        const option = document.createElement("option");
-    
-    
-        selectAdresse.appendChild(option);
-        
-        
-        option.value= `${elements}`;
-        option.textContent= `${elements}`;
-    })
-
 
 }
 
+function suite(arr){
+    
+    
+const arrFilter = arr.sort();
+console.log(arrFilter);
+
+const arrFilterDoublon = arrFilter.filter((x, i) => arrFilter.indexOf(x) === i)
+console.log(arrFilterDoublon);
+
+// for (let i = 0; i < arrFilterDoublon.length; i++) {
+    
+//     console.log(arrFilterDoublon);
+    
+//     const option = document.createElement("option");
+    
+//     selectAdresse.appendChild(option);
+    
+//     option.value= arrFilterDoublon[i];
+//     option.textContent= arrFilterDoublon[i];
+    
+// }
+
+}
+
+console.log(arrFilterDoublon);
+console.log("ok");
 
 
 
+
+// var arr = [ 1, 3, 5, 1, 2, 3, 7, 4, 5];
+// var unique = arr.filter((x, i) => arr.indexOf(x) === i);
+// console.log(unique);
 
 
 
 
 // for (const elements of arrFilterDoublon) {
-
+        
 //     // selectAdresse.style.display="block";
 
 //     console.log(elements.city);
