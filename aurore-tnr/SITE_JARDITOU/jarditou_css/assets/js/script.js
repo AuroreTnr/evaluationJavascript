@@ -183,16 +183,6 @@ function liveCheck(e){
     }
 
 
-    //ADRESSE
-    if(adresseValid.test(adresse.value)){
-        // VALIDATION REGEX
-        e.preventDefault();
-        adresse.style.color="green";
-        errorAdresse.textContent="Valid"
-        errorAdresse.style.color="green"
-    }else{
-        adresse.style.color="#8d0202";
-    }
 
 
     //VILLE
@@ -245,6 +235,9 @@ function clickReset(){
 // console.log(adresseAuto);
 
 adresse.addEventListener("input", adresseAutoComplete);
+const selectAdresse = document.querySelector("#select-adresse")
+// console.log(selectAdresse);
+
 
 async function adresseAutoComplete() {
     // CUSTOM Q EN FONCTION DE LA VALUE DE L INPUT
@@ -252,7 +245,7 @@ async function adresseAutoComplete() {
     const suppSpace = value.replaceAll(" ", "+")
 
     //APPEL API
-    const response = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${suppSpace}`);
+    const response = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${suppSpace}&limit=5`);
     // console.log(response);
 
     // CONVERSION JSON -> JS
@@ -260,33 +253,87 @@ async function adresseAutoComplete() {
 
     // LIEU OU CHERCHER LES DATAS
     const dataFeatures = data.features;
-    console.log(dataFeatures);
+    // console.log(dataFeatures);
 
+
+    let arr = [];
 
     for(const element of dataFeatures){
-        console.log(element.properties.street);
-        console.log(element.properties.context);
-        console.log(element.properties.city);
-        console.log(element.properties.postcode);
+        // console.log(element.properties.street);
+        // console.log(element.properties.context);
+        // console.log(element.properties.city);
+        // console.log(element.properties.postcode);
+        // console.log(element.properties.id);
         // Boulevard du Port
         //  80, Somme, Hauts-de-France
         //  Amiens
-        //  80021
-
-        codePostal.value = element.properties.postcode;
-        ville.value = element.properties.city;
+        //  80021   
 
         
-
-
+        arr.push(element.properties.city) 
+        
     }
-   
+
+
+
+    
+    const arrFilter = arr.sort().filter((item, pos, ary) => !pos || item != ary[pos - 1]).slice(" ");
+    
+    arrFilter.forEach(elements => {
+
+        console.log(elements);
+
+        const option = document.createElement("option");
+    
+    
+        selectAdresse.appendChild(option);
+        
+        
+        option.value= `${elements}`;
+        option.textContent= `${elements}`;
+    })
+
 
 }
 
 
 
 
+
+
+
+
+// for (const elements of arrFilterDoublon) {
+
+//     // selectAdresse.style.display="block";
+
+//     console.log(elements.city);
+    
+    
+//         const option = document.createElement("option");
+               
+
+//         selectAdresse.appendChild(option);
+
+        
+//         option.value= `${elements.city}`;
+//         option.textContent= `${elements.city}`;
+    
+//         // codePostal.value = elements.postcode;
+//         // ville.value = elements.city;
+//     }
+
+// }
+
+// 14 Rue Jeanne Maillotte
+
+
+
+// function uniq(a) {
+//     return a.sort().filter(function(item, pos, ary) {
+//         return !pos || item != ary[pos - 1];
+//     });
+// }
 
 
 

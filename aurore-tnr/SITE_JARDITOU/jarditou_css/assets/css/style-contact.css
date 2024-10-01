@@ -97,9 +97,11 @@ input[type="radio"], input[type="checkbox"] {
 
 /* LI AUTO COMPLET ADRESSE */
 
-li{
-    list-style-type: none;
-    margin: 10px 15px;
+select{
+    width: 500px;
+    padding: 8px;
+    background: transparent;
+    /* display: none; */
 }
 
 
