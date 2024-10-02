@@ -98,82 +98,110 @@ function searchPrenom() {
        
 }
 
+// Exercice 4 : total d' une commande
+
+
+// A partir de la saisie du prix unitaire noté PU d'un produit et de la quantité commandée QTECOM, afficher le prix à payer PAP,
+
+
+//en détaillant la remise REM
+
+//et le port PORT,
+
+//sachant que : TOT = ( PU * QTECOM )
+
+//la remise est de 5% si TOT est compris entre 100 et 200 €
+
+//et de 10% au-delà
+
+//le port est gratuit si le prix des produits ( le total remisé ) est supérieur à 500 €.
+
+//Dans le cas contraire, le port est de 2%
+
+//la valeur minimale du port à payer est de 6 €
 
 
 
-// Exercice 4 : total d'une commande
+
 // const btnExo4 = document.querySelector("#exo-4");
 // const reponse4 = document.querySelector(".reponse4");
 // btnExo4.addEventListener("click", prixPap);
 
-// function prixPap(){
-//     // DATA
-//     let pu = parseInt(prompt("Entrez lz prix unitaire :"));
-//     let qtecom = parseInt(prompt("Entrez la quantité"));
+function prixPap(){
+    // DATA
+    let pu = parseInt(prompt("Entrez le prix unitaire :"));
+    let qtecom = parseInt(prompt("Entrez la quantité"));
     
     
-//     // REMISE
-//     let remise;
+    // PRIX UNITAIRE / QUANTITÉ
+    let tot = pu * qtecom;
+    console.log(tot);
+
+
+    // VARIABLES
+    let pourcentRemise;
+    let remise;
+    let prixAvecReduction;
+    let fraisDePort;
+    let prixTotal;
     
     
-//     // PRIX UNITAIRE / QUANTITÉ
-//     let tot = pu * qtecom;
-//     console.log(tot);
-    
-//     // MONTANT DE LA REMISE
-//     let montantDeLaRemise = tot - (remise/100);
-//     console.log(montantDeLaRemise);
-    
-//     //PRIX AVEC REMISE
-//     let prixAvecRemise = tot - montantDeLaRemise;
-//     console.log(prixAvecRemise);
-    
-    
-    
-    
-//     if (tot > 99 && tot < 199) {
-//         remise = 5;
-//         console.log(remise);
-//     }else if (tot > 200){
-//         remise = 10;
-//         console.log(remise);
-//     }else if (tot < 100) {
-//         remise = 0;
-//         console.log(remise);
-//     }
-    
-//     // CALCUL DES FRAIS DE PORT
-//     else if (fraisDePort > 500) {
-//         fraisDePort = 0;
-//     }
-//     else if (fraisDePort< 500) {
-//         fraisDePort = prixAvecRemise + (2 / 100)
-//     }
-//     else if (fraisDePort< 6) {
-//         fraisDePort = 6;
-//     }else{
-//         return "ici"
-//     }
+    if (tot > 99 && tot < 199) {
+        // POURCNTAGE REMISE
+        pourcentRemise = 5
+        // PRIX REMISE
+        remise = tot * pourcentRemise/100;
+
+        // PRIX AVEC REDUCTION
+        prixAvecReduction = tot - remise;
+        
+    }else if (tot > 200){
+        // POURCNTAGE REMISE
+        pourcentRemise = 10
+
+        // PRIX REMISE
+        remise = tot * pourcentRemise/100;
+
+        // PRIX AVEC REDUCTION
+        prixAvecReduction = tot - remise;
+        
+    }else if (tot < 100) {
+        // POURCNTAGE REMISE
+        pourcentRemise = 0
+
+        // PRIX REMISE
+        remise = 0
+
+        // PRIX AVEC REDUCTION
+        prixAvecReduction = tot;
+
+    }
+
     
     
+    // CALCUL DES FRAIS DE PORT
+    if (prixAvecReduction > 500) {
+        fraisDePort = 0;
+        prixTotal = prixAvecReduction;
+    }
+    else if (prixAvecReduction < 500) {
+        fraisDePort = prixAvecReduction*2/100;
+        prixTotal = prixAvecReduction - fraisDePort;
+    }
+    else{
+        fraisDePort = 6;
+        prixTotal = prixAvecReduction - fraisDePort;
     
-//     // FRAIS DE PORT
-//     let fraisDePort = 6;
-//     console.log(fraisDePort);
-    
-//     // TOTAL
-//     let total = prixAvecRemise + fraisDePort;
-//     console.log(total);
     
 
 
 
-//     reponse4.textContent = `remise ${remise}% (- ${montantDeLaRemise}€) soit ${prixAvecRemise} et frais de port ${fraisDePort} à payer : ${total}`
-// }
-// prixPap()
+    reponse4.textContent = `remise ${remise}% (- ${prixAvecReduction}€) soit ${prixAvecRemise} et frais de port ${fraisDePort} à payer : ${total}`
+}
 //BLOQUEE
 
 
+//EXEMPLE Saisir 501 € et quantité = 1 : remise 10% (-50,1 €) soit 450,90 et frais port 2% (de 450,90 €) soit +9,01 € ; à payer : 450,90+9.01 = 459,91 €. 
 
 
 // Exercice 5 : vérification d'un formulaire (lien sur l' index)
@@ -184,5 +212,4 @@ function searchPrenom() {
 // const btnFloat = document.querySelector(".btn-float");
 // btnFloat.addEventListener("click", scrollTop);
 
-
-
+}

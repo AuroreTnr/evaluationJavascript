@@ -11,15 +11,15 @@ const message = document.querySelector("#message");
 
 
 // SELECTION MESSAGE ERREURS
-const errorName = document.querySelector(".error-name");
-const errorPrenom = document.querySelector(".error-prenom");
-const errorCodePostal = document.querySelector(".error-codePostal");
-const errorAdresse = document.querySelector(".error-adresse");
-const errorVille = document.querySelector(".error-ville");
-const errorEmail = document.querySelector(".error-email");
-const errorMessage = document.querySelector(".error-message");
+const errorName = document.querySelector("#error-name");
+const errorPrenom = document.querySelector("#error-prenom");
+const errorCodePostal = document.querySelector("#error-codePostal");
+const errorAdresse = document.querySelector("#error-adresse");
+const errorVille = document.querySelector("#error-ville");
+const errorEmail = document.querySelector("#error-email");
+const errorMessage = document.querySelector("#error-message");
 
-const allErrorMessage = document.querySelectorAll("#error-msg");
+const allErrorMessage = document.querySelectorAll(".error-msg");
 
 
 // SELECTION BTN SUBMIT / RESET
@@ -29,6 +29,7 @@ const btnReset = document.querySelector("#btn-reset");
 
 //REGEX
 const charValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+const adresseValid = /^[#.0-9a-zA-Z\s,-]+$/;
 const postalValid = /^([0-9]{5})+$/;
 const emailValid = /^[a-z0-9.-]+@[a-z0-9.-]{2,}.[a-z]{2,4}$/;
 
@@ -64,7 +65,6 @@ function handleClickSubmit(e){
         errorPrenom.style.color="#8d0202";
     }else if(charValid.test(prenom.value) == false){
         // VALIDATION REGEX
-        e.preventDefault();
         errorPrenom.textContent = "Format incorrect";
         errorPrenom.style.color="#8d0202";
     }
@@ -78,7 +78,6 @@ function handleClickSubmit(e){
         errorCodePostal.style.color="#8d0202";
     }else if(postalValid.test(codePostal.value) == false){
         // VALIDATION REGEX
-        e.preventDefault();
         errorCodePostal.textContent = "5 chiffres sont demandés";
         errorCodePostal.style.color="#8d0202";
     }
@@ -90,6 +89,9 @@ function handleClickSubmit(e){
         e.preventDefault();
         errorAdresse.textContent="Entrez votre adresse";
         errorAdresse.style.color="#8d0202";
+    }else if(adresseValid.test(adresse.value)){
+        errorAdresse.textContent="Valid";
+        errorAdresse.style.color="green";
     }
 
 
@@ -101,7 +103,6 @@ function handleClickSubmit(e){
         errorVille.style.color="#8d0202";
     }else if(charValid.test(ville.value) == false){
         // VALIDATION REGEX
-        e.preventDefault();
         errorVille.textContent = "Format incorrect";
         errorVille.style.color="#8d0202";
     }
@@ -116,7 +117,6 @@ function handleClickSubmit(e){
 
     }else if(emailValid.test(email.value) == false){
         // VALIDATION REGEX
-        e.preventDefault();
         errorEmail.textContent = "Format email souhaité nom@domaine.fr";
         errorEmail.style.color="#8d0202";
     }
@@ -184,6 +184,19 @@ function liveCheck(e){
 
 
 
+    // CODE ADRESSE
+    if(adresseValid.test(adresse.value)){
+        // VALIDATION REGEX
+        e.preventDefault();
+        adresse.style.color="green";
+        errorAdresse.textContent="Valid"
+        errorAdresse.style.color="green"
+    }else{
+        errorAdresse.style.color="#8d0202";
+    }
+
+
+
 
     //VILLE
     if(charValid.test(ville.value)){
@@ -209,10 +222,11 @@ function liveCheck(e){
     }
 
     //MESSAGE
-    if (!message.validity.valueMissing) {
+    if (charValid.test(message.value)) {
         // TEST CHAMP VIDE
         e.preventDefault();
-        errorMessage.textContent="";      
+        errorMessage.textContent="Valid";
+        errorMessage.style.color="green";
     }
     
     
@@ -229,120 +243,99 @@ function clickReset(){
 }
 
 
-// APPEL API AUTO COMPLET ADRESSE
-// const div = document.querySelector("#selection")
-// const adresseAuto = document.querySelector("#adresse-autocomplete")
-// console.log(adresseAuto);
-
-adresse.addEventListener("input", adresseAutoComplete);
-const selectAdresse = document.querySelector("#select-adresse")
-// console.log(selectAdresse);
-
-let arr = [];
-
-async function adresseAutoComplete(arr) {
-    // CUSTOM Q EN FONCTION DE LA VALUE DE L INPUT
-    const valueBrut = adresse.value;
-    const values = valueBrut.replaceAll(" ", "+")
-
-    //APPEL API
-    const response = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${values}`);
-    // console.log(response);
-
-    // CONVERSION JSON -> JS
-    const data = await response.json();
-
-    // LIEU OU CHERCHER LES DATAS
-    
-    const dataFeatures = data.features;
-    // console.log(dataFeatures);
-    
-    
-    
-    arr = [];
-
-    for(const element of dataFeatures){
-    
-
-        
-        arr.push(element.properties.city) 
-
-        
-    }
-
-    suite(arr)
-    
-
-}
-
-function suite(arr){
-    
-    
-const arrFilter = arr.sort();
-console.log(arrFilter);
-
-const arrFilterDoublon = arrFilter.filter((x, i) => arrFilter.indexOf(x) === i)
-console.log(arrFilterDoublon);
-
-// for (let i = 0; i < arrFilterDoublon.length; i++) {
-    
-//     console.log(arrFilterDoublon);
-    
-//     const option = document.createElement("option");
-    
-//     selectAdresse.appendChild(option);
-    
-//     option.value= arrFilterDoublon[i];
-//     option.textContent= arrFilterDoublon[i];
-    
-// }
-
-}
-
-console.log(arrFilterDoublon);
-console.log("ok");
 
 
 
 
-// var arr = [ 1, 3, 5, 1, 2, 3, 7, 4, 5];
-// var unique = arr.filter((x, i) => arr.indexOf(x) === i);
-// console.log(unique);
 
 
 
 
-// for (const elements of arrFilterDoublon) {
-        
-//     // selectAdresse.style.display="block";
 
-//     console.log(elements.city);
-    
-    
+
+
+
+// APPEL D' UN API POUR AUTO COMPLET L' ADRESSE (API GOUV.FR)------(ECHEC DE LA MISE EN PLACE)---------
+
+// BUT => QUAND L' UTILISATEUR TAPE SON ADRESSE UNE DATALIST LUI AI PROPOSÉ.
+// UNE FOIS QU' IL CLIQUE SUR L' OPTION DE SON CHOIX, LA VILLE ET LE CODE POSTAL DOIVENT
+// SE METTRE AUTOMATIQUEMENT DANS LES CHAMPS DE L' INPUTS CODE POSTAL ET VILLE.
+
+
+// adresse.addEventListener("keyup", adresseAutoComplete);
+// const selectAdresse = document.querySelector("#select-adresse")
+// // console.log(selectAdresse);
+
+
+// async function adresseAutoComplete() {
+//     // CUSTOM Q EN FONCTION DE LA VALUE DE L INPUT
+//     const valueBrut = adresse.value;
+//     const values = valueBrut.replaceAll(" ", "+")
+
+//     //APPEL API
+//     const response = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${values}&limit=15`);
+//     // console.log(response);
+
+//     // CONVERSION JSON -> JS
+//     const data = await response.json();
+
+//     // LIEU OU CHERCHER LES DATAS
+//     const dataFeatures = data.features;
+//     console.log(dataFeatures);
+
+//     // ARRAY
+//     let arrName = [];
+
+//     // ARRAY FILTRE DOUBLONS
+//     let unique = [];
+
+
+//     for(const features of dataFeatures){
+//         // PROPS / VALUES
+//         const id = features.properties.id;
+//         const city = features.properties.city;
+//         const label = features.properties.label;
+//         const postcode = features.properties.postcode;
+//         const name = features.properties.name;
+
+//         // console.log(city);
+//         // console.log(label);
+//         // console.log(postcode);
+//         // console.log(id);
+//         // console.log(features);
+
+//         // CREATION DES OPTIONS DANS LA DATALIST
 //         const option = document.createElement("option");
-               
-
+    
 //         selectAdresse.appendChild(option);
 
+//         // AJOUT DE L' ATTRIBUT ID
+//         option.setAttribute("id", `${id}`)
+
+
+//         // PUSH LABEL
+//         arrName.push(label);
+
+//         // TRIE LABEL
+//         unique = arrName.filter((x, i) => arrName.indexOf(x) === i);
+//         console.log(unique);
+
+//         // ATTRIBUTION VALUES
+//         option.textContent = `${city}`;
+//         option.value = name;
+
         
-//         option.value= `${elements.city}`;
-//         option.textContent= `${elements.city}`;
-    
-//         // codePostal.value = elements.postcode;
-//         // ville.value = elements.city;
 //     }
 
+//     // A CE STADE JE NE SUIS PAS CAPABLE DE REMPLIR LES CHAMPS : CODE POSTAL ET VILLE; EN FONCTION
+//     // DE LA DATALIST CHOISIE PAR L' UTILISATEUR.
+
+    
 // }
 
-// 14 Rue Jeanne Maillotte
 
 
 
-// function uniq(a) {
-//     return a.sort().filter(function(item, pos, ary) {
-//         return !pos || item != ary[pos - 1];
-//     });
-// }
 
 
 

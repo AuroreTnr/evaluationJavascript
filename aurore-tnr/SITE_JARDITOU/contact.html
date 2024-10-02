@@ -55,55 +55,47 @@
                 <fieldset>
                     <legend>Vos coordonnées</legend>
                     
-                    <span id="error-msg" class="error-name"></span>
+                    <span class="error-msg" id="error-name"></span>
                     <label for="name">Votre nom : *</label> 
                     <input type="text" id="name" name="name" placeholder="Votre nom" maxlength="20" autofocus required> 
                 
-                    <span id="error-msg" class="error-prenom"></span>
+                    <span class="error-msg" id="error-prenom"></span>
                     <label for="prenom">Votre prénom : *</label> 
-                    <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" maxlength="20"required> 
+                    <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" maxlength="20" required> 
                     
                     <!-- RADIO BTN GENRE -->
                     <span>Sexe : *</span>
                     <div class="input-radio">
-                        <input type="radio" value="feminin" name="genre" id="feminin" required oninvalid="this.setCustomValidity('Veuillez selectionnez un genre')">
+                        <input type="radio" value="feminin" name="genre" id="feminin" required>
                         <label for="feminin">Féminin</label>
                         <input type="radio" value="masculin" name="genre" id="masculin" required>
                         <label for="masculin">Masculin</label>
                     </div>
                     
 
-                    <label for="dateNaissance">Date de naissance : *</span></label> 
-                    <input type="date" id="dateNaissance" name="dateNaissance" required oninvalid="this.setCustomValidity('Veuillez selectionnez votre date de naissance')"> 
+                    <label for="dateNaissance">Date de naissance : *</label> 
+                    <input type="date" id="dateNaissance" name="dateNaissance" required> 
                 
 
-
-                    <!-- <label for="adresse-autocomplete">Saisiez votre adresse</label>
-                    <textarea name="adresse-autocomplete" id="adresse-autocomplete" cols="50" ></textarea>
-                    <div id="selection">
-                        <ul>
-                            <li></li>
-                        </ul>
-                    </div>
- -->
-
-
-                    <span id="error-msg"class="error-adresse"></span>
+                    <span class="error-msg" id="error-adresse"></span>
                     <label for="adresse">Adresse : *</label> 
                     <input type="text" id="adresse" name="adresse" required>
-                    <select name="adresse" id="select-adresse"></select>
+
+                    <!-- TEST DATALIST -->
+                    <!-- <input list="select-adresse" id="adresse" name="adresse" required> -->
+                    <!-- <datalist name="adresse" id="select-adresse" class ="active"></datalist> -->
 
                     
-                    <span id="error-msg" class="error-codePostal"></span>
+                    <span class="error-msg" id="error-codePostal"></span>
                     <label for="codePostal">Code Postal : *</label> 
                     <input type="number" id="codePostal" name="codePostal" placeholder="Votre code postal" required> 
                 
-                    <span id="error-msg" class="error-ville"></span>
+                    <span class="error-msg" id="error-ville"></span>
                     <label for="ville">Ville : *</label> 
                     <input type="text" id="ville" name="ville" required > 
                 
                 
-                    <span id="error-msg" class="error-email"></span>
+                    <span class="error-msg" id="error-email"></span>
                     <label for="email">Email : *</label> 
                     <input type="email" id="email" name="email" placeholder="dave.loper@afpa.fr" required> 
                 </fieldset>
@@ -112,7 +104,7 @@
                 <fieldset>
                     <legend>Votre demande</legend>
                     <label for="selectList">Sujet : *</label>
-                    <select name="sujetList" id="selectList" required oninvalid="this.setCustomValidity('Veuillez selectionnez le sujet de votre demande')">
+                    <select name="sujetList" id="selectList" required>
                         <option value="">Veuillez séléctionner un sujet</option>
                         <option value="mescommandes">Mes commandes</option>
                         <option value="question">Question sur un produit</option>
@@ -120,15 +112,15 @@
                         <option value="autre">Autres</option>
                     </select> <br>
 
-                    <span id="error-msg" class="error-message"></span>
-                    <label for="message">Votre question : * </span></label>
+                    <span class="error-msg" id="error-message"></span>
+                    <label for="message">Votre question : *</label>
                     <textarea name="message" id="message" required></textarea>
                 </fieldset>
 
 
                 <div class="input-radio">
                     <input type="checkbox" id="checkCondition" required>
-                    <label for="checkCondition" oninvalid="this.setCustomValidity('Veuillez accepter le traitement informatique')">* J' accepte le traitement informatique de ce formulaire</label>
+                    <label for="checkCondition">* J' accepte le traitement informatique de ce formulaire</label>
                 </div>
     
                 <div class="btn">
@@ -154,6 +146,8 @@
     
     
     <script src="jarditou_css/assets/js/script.js"></script>
+    <script src="jarditou_css/assets/js/script-toogle.js"></script>
+
 
         
 </body>

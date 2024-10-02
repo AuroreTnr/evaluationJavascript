@@ -61,7 +61,7 @@ body {
     text-decoration: none;
 }
 
-.jarditou-logo::after {
+.nav-header a::after {
     content: "";
     display: block;
     width: 100%;
@@ -70,10 +70,10 @@ body {
     transform: scale(0);
 }
 
-.jarditou-logo:hover::after {
+.nav-header a:hover::after {
     transform: scale(1);
 }
-.jarditou-logo:hover{
+.nav-header a:hover{
     color: var(--color-navbar-activ);
 }
 
@@ -142,17 +142,16 @@ body {
 
     .nav-header {
         width: 100%;
-        padding: 0;
+        padding: 10px;
         position: relative;
     }
 
-    .nav-header a {
-        color: #f1f1f1;
-        margin: 0 5px;
-        /* ??clamp?? */
-        font-size: calc(1vmin + 8px);
-        text-decoration: none;
+    .nav-header a:not(:nth-child(1)) {
+        display: none;
     }
+
+
+
 
 
 
@@ -187,6 +186,32 @@ body {
         top: 7px;
         right: 7px;
     }
+
+    /* ANIMATION TOOGLE BTN */
+    .nav-header.active {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-header.active a {
+        display: inline-block;
+        color: #f1f1f1;
+        margin: 0 5px;
+        padding: 8px;
+        /* ??clamp?? */
+        font-size: calc(1vmin + 8px);
+        text-decoration: none;
+    }
+
+
+
+    
+    
+
 }
 
 @media screen and (max-width: 682px){
