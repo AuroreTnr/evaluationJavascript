@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-regex.css">
+    <title>RegEx</title>
+</head>
+<body>
+
+    <!-- TESTER LES REGEX : https://regex101.com/ -->
+
+    <h1>RegEx</h1>
+
+    <form action="formulaire.php" method="post" enctype="multipart/form-data">
+
+        <span class="error" id="error-prenom"></span>
+        <label for="prenom">Prenom</label>
+        <input type="text" id="prenom" name="prenom" placeholder="Alice"  maxlength='20' autofocus required>
+
+        <span class="error" id="error-n-tel"></span>
+        <label for="n-tel">telephone</label>
+        <input type="number" name="n-tel" id="n-tel" placeholder="+33" minlength='10' maxlength='10' required>
+
+        <span class="error" id="error-email"></span>
+        <label for="email">e-mail</label>
+        <input type="email" name="email" id="email" placeholder="dave.rtht@fnj.fr" required>
+
+        <input type="submit" name="submit" id="submit" value="Envoyer">
+
+    </form>
+        
+    <script src="script-regex.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les formulaires</title>
+</head>
+<body>
+    <h1>Les formulaires</h1>
+
+
+    <form action="destination.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="fichier" accept="image/png">
+        <br>
+        <label for="name"  name="name">Votre nom</label>
+        <br>
+        <input type="text" id="name" name="nom" placeholder="Dupond" required>
+        <br>
+        <label for="prenom" name="prenom">Votre prénom</label>
+        <br>
+        <input type="text" id="prenom" name="prenom" placeholder="Marc" required>
+        <br>
+        <label for="message">Votre message</label>
+        <br>
+        <textarea name="message" rows="10" cols="50" id="message" placeholder="(identifiant)"></textarea>
+        <br>
+        <button type="submit">Envoyer</button>
+
+        <input type="checkbox" name="couleur1" value="Bleu" checked> Bleu
+        <input type="checkbox" name="couleur2" value="Bleu"> Rouge
+        <input type="checkbox" name="couleur3" value="Bleu"> Vert
+        <br>
+        <select name="couleur" id="couleur" size="3">
+            <option value="" selected>-</option>
+            <option value="Bleu">Bleu</option>
+            <option value="Rouge">Rouge</option>
+            <option value="Vert">Vert</option>
+        </select>
+    </form>
+
+    <!-- LA BALISE FIELDSET -->
+    <form action="destination.php" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Coordonnées</legend>
+            <label for="nom">Nom:</label><input type="text" name="nom" id="email">
+            <br>
+            <label for="email">Email:</label><input type="email" name="email">
+            <br>
+            <label for="date">Date de naissance:</label><input type="date" name="dateNaissance" id="date">
+
+        </fieldset>
+
+    </form>
+
+    <!-- DATALIST FILTRE-->
+
+    <form action="destination.php" method="post" enctype="multipart/form-data">
+        <label for="metiers2">Sélectionnez votre métier</label>
+        <input type="text" name="metiers1" id="metiers2" list="metiers3">
+
+        <datalist id="metiers3">
+            <option value="webmaster">
+            <option value="développeur">
+            <option value="administarteur B.D.D">
+            <option value="webdesigner">
+        </datalist>
+        <br>
+        <!-- L ATTTRIBUT PATTERN (validation/personnalisation)-->
+        <input type="text" placeholder="Entrez votre nom" pattern="^[a-z]+$" required title="Entrez votre nom (que des caractères entre a et z)">
+        <button>Envoyer</button>
+
+    </form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <form action="formulaire-contact.php" method="post" enctype="multipart/form-data">
+
+        <h1>Vos coordonnées</h1>
+
+        <p>* Ces zones sont obligatoires pour envoyer le formulaire.</p>
+
+        <span class="error-msg" id="error-societe"></span>
+        <label for="societe">Société : *</label>
+        <input type="text" id="societe" name="societe" maxlength="20" required autofocus>
+
+        <span class="error-msg" id="error-contact"></span>
+        <label for="contact">Personne à contacter : *</label>
+        <input type="text" id="contact" name="contact" maxlength="20" required>
+
+        <!-- ?? dataList pour sugerer les adresses ?? API ??-->
+        <span class="error-msg" id="error-adresse"></span>
+        <label for="adresse">Adresse de l' entreprise :</label>
+        <textarea name="adresse" id="adresse" rows="5"></textarea>
+
+        <span class="error-msg" id="error-postal"></span>
+        <label for="postal">Code postal : *</label>
+        <input type="number" id="postal" name="postal" required>
+
+        <span class="error-msg" id="error-ville"></span>
+        <label for="ville">Ville : *</label>
+        <input type="text" id="ville" name="ville" maxlength="20" required>
+
+        <span class="error-msg" id="error-email"></span>
+        <label for="email">E-mail : *</label>
+        <input type="email" id="email" name="email" placeholder="nom@domaine.fr" required>
+
+        <span class="error-msg" id="error-tel"></span>
+        <label for="tel">Téléphone :</label>
+        <input type="number" id="tel" name="tel" placeholder="+33">
+
+        <label for="projet">Séléctionnez l' environnement technique du projet :</label>
+        <select name="projet" id="projet" value="choisissez">
+            <option value="choisissez" selected>choisissez</option>
+            <option value="access">Access</option>
+            <option value="java">Java</option>
+            <option value="delphi">Delphi</option>
+            <option value="windev">Windev</option>
+            <option value="visual-basic">Visual-basic</option>
+            <option value="power-builder">Power-builder</option>
+            <option value="internet">Internet</option>
+            <option value="intranet">Intranet</option>
+            <option value="windows-nt">Windows-nt</option>
+            <option value="unix">Unix</option>
+            <option value="sql-server">SQL-Server</option>
+            <option value="oracle">Oracle</option>
+            <option value="autres">Autres</option>
+        </select>
+
+        <div class="btn-form">
+            <input type="submit" value="Envoyer" id="btn-submit">
+            <input type="reset" value="Effacer" id="btn-reset">
+        </div>
+
+
+    </form>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
