@@ -207,6 +207,10 @@ body {
         text-decoration: none;
     }
 
+    .nav-header.active a:nth-of-type(1) {
+        display: none;
+    }
+
 
 
     
