@@ -98,34 +98,15 @@ function searchPrenom() {
        
 }
 
+
+
+
 // Exercice 4 : total d' une commande
 
 
-// A partir de la saisie du prix unitaire noté PU d'un produit et de la quantité commandée QTECOM, afficher le prix à payer PAP,
-
-
-//en détaillant la remise REM
-
-//et le port PORT,
-
-//sachant que : TOT = ( PU * QTECOM )
-
-//la remise est de 5% si TOT est compris entre 100 et 200 €
-
-//et de 10% au-delà
-
-//le port est gratuit si le prix des produits ( le total remisé ) est supérieur à 500 €.
-
-//Dans le cas contraire, le port est de 2%
-
-//la valeur minimale du port à payer est de 6 €
-
-
-
-
-// const btnExo4 = document.querySelector("#exo-4");
-// const reponse4 = document.querySelector(".reponse4");
-// btnExo4.addEventListener("click", prixPap);
+const btnExo4 = document.querySelector("#exo-4");
+const reponse4 = document.querySelector(".reponse4");
+btnExo4.addEventListener("click", prixPap);
 
 function prixPap(){
     // DATA
@@ -142,18 +123,21 @@ function prixPap(){
     let pourcentRemise;
     let remise;
     let prixAvecReduction;
+    let fraisDePortPoucent;
     let fraisDePort;
     let prixTotal;
+
     
     
-    if (tot > 99 && tot < 199) {
+    if (tot >= 100 && tot <= 200) {
         // POURCNTAGE REMISE
         pourcentRemise = 5
         // PRIX REMISE
         remise = tot * pourcentRemise/100;
 
         // PRIX AVEC REDUCTION
-        prixAvecReduction = tot - remise;
+        prixAvecReduction = (tot - remise);
+
         
     }else if (tot > 200){
         // POURCNTAGE REMISE
@@ -164,6 +148,7 @@ function prixPap(){
 
         // PRIX AVEC REDUCTION
         prixAvecReduction = tot - remise;
+
         
     }else if (tot < 100) {
         // POURCNTAGE REMISE
@@ -175,41 +160,68 @@ function prixPap(){
         // PRIX AVEC REDUCTION
         prixAvecReduction = tot;
 
+
     }
 
     
     
     // CALCUL DES FRAIS DE PORT
     if (prixAvecReduction > 500) {
-        fraisDePort = 0;
-        prixTotal = prixAvecReduction;
+        fraisDePortPoucent = 0;
+        fraisDePort = prixAvecReduction*fraisDePortPoucent/100;
+        prixTotal = prixAvecReduction + fraisDePort;
     }
     else if (prixAvecReduction < 500) {
-        fraisDePort = prixAvecReduction*2/100;
-        prixTotal = prixAvecReduction - fraisDePort;
+        fraisDePortPoucent = 2;
+        fraisDePort = prixAvecReduction*fraisDePortPoucent/100;
+        if (fraisDePort < 6) {
+            fraisDePort = 6;
+        }
+        prixTotal = prixAvecReduction + fraisDePort;
+
     }
-    else{
-        fraisDePort = 6;
-        prixTotal = prixAvecReduction - fraisDePort;
     
     
 
 
+    //RESULT
+    reponse4.textContent = `remise ${pourcentRemise.toFixed()}% (- ${remise.toFixed(2)}€) soit ${prixAvecReduction.toFixed(2)} et frais de port ${fraisDePortPoucent.toFixed()}% (de ${prixAvecReduction.toFixed(2)}) soit + ${fraisDePort.toFixed(2)} ; à payer : ${prixAvecReduction.toFixed(2)} + ${fraisDePort.toFixed(2)} = ${prixTotal.toFixed(2)} €`
 
-    reponse4.textContent = `remise ${remise}% (- ${pourcentRemise}€) soit ${prixAvecRemise} et frais de port ${fraisDePort}% (de ${prixAvecRemise}) à payer : ${prixTotal}`
+    
 }
-//BLOQUEE
 
 
-//EXEMPLE Saisir 501 € et quantité = 1 : remise 10% (-50,1 €) soit 450,90 et frais port 2% (de 450,90 €) soit +9,01 € ; à payer : 450,90+9.01 = 459,91 €. 
+//TEST
+// Saisir 600 € et quantité = 1 : remise 10% (-60 €) soit 540,00 et frais port = 0; à payer : 540 €
+
+// Saisir 501 € et quantité = 1 : remise 10% (-50,1 €) soit 450,90 et frais port 2% (de 450,90 €) soit +9,01 € ; à payer : 450,90+9.01 = 459,91 €.
+
+// Saisir 100 € et quantité = 2 : 200 € donc remise 5% soit 190 € et frais de port 2% soit 3,8 € mini 6 €; à payer : 190+6 = 196 €
+
+// Saisir 3 € et quantité = 1 : remise 0, frais de port 2% soit 0.06 € donc le minimum de 6 € s'applique; à payer : 3+6 = 9 €EXEMPLE Saisir 501 € et quantité = 1 : remise 10% (-50,1 €) soit 450,90 et frais port 2% (de 450,90 €) soit +9,01 € ; à payer : 450,90+9.01 = 459,91 €. 
+
+
+
+
 
 
 // Exercice 5 : vérification d'un formulaire (lien sur l' index)
 
 
 
-// BUTTON FLOAT
-// const btnFloat = document.querySelector(".btn-float");
-// btnFloat.addEventListener("click", scrollTop);
 
+
+
+
+// BUTTON FLOAT
+const btnFloat = document.querySelector(".btn-float");
+
+btnFloat.addEventListener("click", scrollTop);
+function scrollTop(){
+    window.scroll({
+        top: 0,
+        behavior: "smooth"
+    });
 }
+
+
