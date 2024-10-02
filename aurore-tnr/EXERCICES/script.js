@@ -196,7 +196,7 @@ function prixPap(){
 
 
 
-    reponse4.textContent = `remise ${remise}% (- ${prixAvecReduction}€) soit ${prixAvecRemise} et frais de port ${fraisDePort} à payer : ${total}`
+    reponse4.textContent = `remise ${remise}% (- ${pourcentRemise}€) soit ${prixAvecRemise} et frais de port ${fraisDePort}% (de ${prixAvecRemise}) à payer : ${prixTotal}`
 }
 //BLOQUEE
 
