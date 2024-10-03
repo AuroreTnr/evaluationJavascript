@@ -80,21 +80,36 @@ function searchPrenom() {
 
     let prenom = prompt("Entrez un prénom : ");
 
-    let search = tab.indexOf(prenom);
-    
+    tab.forEach(values => {
+        if (values.toLowerCase() === prenom || values === prenom) {
 
-    if (search < 0) {
-        return reponse3.textContent = `Le prénom '${prenom}' n' a pas été trouvé`
+            console.log("ok");
+            console.log(tab.indexOf(values));
+
+            tab.splice(tab[tab.indexOf(values)], 1); // faux
+
+            tab.push(" ")
+
+
+            console.log(tab);
+            
+
+            return reponse3.textContent= tab;
+
+            
+
+
+        }else if(!values){
+
+            return reponse3.textContent = `Le prénom '${prenom}' n' a pas été trouvé`
+        }
+
+            
         
-    }else{
-        tab.splice(search,1);
-        
-        tab.push("");
+    })
+   
 
-        console.log(tab);
-    }
 
-    return reponse3.textContent= tab;
        
 }
 
