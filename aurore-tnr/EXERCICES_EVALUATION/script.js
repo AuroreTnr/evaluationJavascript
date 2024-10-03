@@ -75,36 +75,41 @@ function searchPrenom() {
     //RESET REPONSE
     reponse3.textContent="";
 
-
+    // ARRAY
     let tab = ["Audrey", "Aurélien", "Flavien", "Jérémy", "Laurent", "Melik", "Nouara", "Salem", "Samuel", "Stéphane"];
 
+
     let prenom = prompt("Entrez un prénom : ");
+
+    prenom.trim()
 
     tab.forEach(values => {
         if (values.toLowerCase() === prenom || values === prenom) {
 
-            console.log("ok");
-            console.log(tab.indexOf(values));
-
-            tab.splice(tab[tab.indexOf(values)], 1); // faux
-
-            tab.push(" ")
-
-
-            console.log(tab);
+            console.log(values.toLowerCase());
+            console.log(values);
+            console.log(prenom);
             
+            // console.log(tab);
+            // console.log(tab.length);
+            // console.log(tab.indexOf(values));
+
+            tab.splice(tab.indexOf(values), 1);
+
+            tab.splice(tab.length, 0, " ");
+
+            // console.log(tab);
 
             return reponse3.textContent= tab;
 
-            
-
-
-        }else if(!values){
-
-            return reponse3.textContent = `Le prénom '${prenom}' n' a pas été trouvé`
         }
+        else{
 
+            console.log("else");
+            return reponse3.textContent = `Le prénom '${prenom}' n' a pas été trouvé`
             
+            
+        }
         
     })
    
