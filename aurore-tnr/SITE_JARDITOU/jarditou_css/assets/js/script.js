@@ -262,14 +262,14 @@ function clickReset(){
 // SE METTRE AUTOMATIQUEMENT DANS LES CHAMPS DE L' INPUTS CODE POSTAL ET VILLE.
 
 
-// adresse.addEventListener("keyup", adresseAutoComplete);
-// const selectAdresse = document.querySelector("#select-adresse")
-// // console.log(selectAdresse);
+// const inputSelect = document.querySelector("#input-select")
+// inputSelect.addEventListener("keyup", adresseAutoComplete);
+// console.log(inputSelect);
 
 
 // async function adresseAutoComplete() {
 //     // CUSTOM Q EN FONCTION DE LA VALUE DE L INPUT
-//     const valueBrut = adresse.value;
+//     const valueBrut = adresse.value; // inputSelect
 //     const values = valueBrut.replaceAll(" ", "+")
 
 //     //APPEL API
@@ -283,54 +283,28 @@ function clickReset(){
 //     const dataFeatures = data.features;
 //     console.log(dataFeatures);
 
-//     // ARRAY
-//     let arrName = [];
+//     let arrProp = []
+//     for(object of dataFeatures){
+//         console.log(object.properties);
 
-//     // ARRAY FILTRE DOUBLONS
-//     let unique = [];
-
-
-//     for(const features of dataFeatures){
-//         // PROPS / VALUES
-//         const id = features.properties.id;
-//         const city = features.properties.city;
-//         const label = features.properties.label;
-//         const postcode = features.properties.postcode;
-//         const name = features.properties.name;
-
-//         // console.log(city);
-//         // console.log(label);
-//         // console.log(postcode);
-//         // console.log(id);
-//         // console.log(features);
-
-//         // CREATION DES OPTIONS DANS LA DATALIST
-//         const option = document.createElement("option");
-    
-//         selectAdresse.appendChild(option);
-
-//         // AJOUT DE L' ATTRIBUT ID
-//         option.setAttribute("id", `${id}`)
-
-
-//         // PUSH LABEL
-//         arrName.push(label);
-
-//         // TRIE LABEL
-//         unique = arrName.filter((x, i) => arrName.indexOf(x) === i);
-//         console.log(unique);
-
-//         // ATTRIBUTION VALUES
-//         option.textContent = `${city}`;
-//         option.value = name;
-
-        
+//         arrProp.push(Object.values(object.properties));
+//         console.log(arrProp);
 //     }
+
+//     for(occurences of arrProp){
+//         if (adresse.value.includes(occurences)) {
+            
+//         }
+        
+
+//     }
+
 
 //     // A CE STADE JE NE SUIS PAS CAPABLE DE REMPLIR LES CHAMPS : CODE POSTAL ET VILLE; EN FONCTION
 //     // DE LA DATALIST CHOISIE PAR L' UTILISATEUR.
 
     
+//     console.log(inputSelect);
 // }
 
 
