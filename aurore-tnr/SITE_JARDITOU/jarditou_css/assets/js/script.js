@@ -141,7 +141,7 @@ function handleClickSubmit(e){
 firstName.addEventListener("input", liveCheck);
 prenom.addEventListener("input", liveCheck);
 codePostal.addEventListener("input", liveCheck);
-adresse.addEventListener("input", liveCheck);
+// adresse.addEventListener("input", liveCheck);
 ville.addEventListener("input", liveCheck);
 email.addEventListener("input", liveCheck);
 message.addEventListener("input", liveCheck);
@@ -255,57 +255,58 @@ function clickReset(){
 
 
 
-// APPEL D' UN API POUR AUTO COMPLET L' ADRESSE (API GOUV.FR)------(ECHEC DE LA MISE EN PLACE)---------
+// APPEL D' UN API POUR AUTO COMPLET L' ADRESSE (API GOUV.FR)---------
 
 // BUT => QUAND L' UTILISATEUR TAPE SON ADRESSE UNE DATALIST LUI AI PROPOSÉ.
 // UNE FOIS QU' IL CLIQUE SUR L' OPTION DE SON CHOIX, LA VILLE ET LE CODE POSTAL DOIVENT
 // SE METTRE AUTOMATIQUEMENT DANS LES CHAMPS DE L' INPUTS CODE POSTAL ET VILLE.
 
 
-// const inputSelect = document.querySelector("#input-select")
-// inputSelect.addEventListener("keyup", adresseAutoComplete);
-// console.log(inputSelect);
+const inputSelect = document.querySelector("#input-select")
+inputSelect.addEventListener("keyup", adresseAutoComplete);
+console.log(inputSelect);
 
 
-// async function adresseAutoComplete() {
-//     // CUSTOM Q EN FONCTION DE LA VALUE DE L INPUT
-//     const valueBrut = adresse.value; // inputSelect
-//     const values = valueBrut.replaceAll(" ", "+")
+async function adresseAutoComplete() {
+    // CUSTOM Q EN FONCTION DE LA VALUE DE L INPUT
+    const valueBrut = inputSelect.value; // adresse
+    const values = valueBrut.replaceAll(" ", "+")
 
-//     //APPEL API
-//     const response = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${values}&limit=15`);
-//     // console.log(response);
+    //APPEL API
+    const response = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${values}&limit=15`);
+    // console.log(response);
 
-//     // CONVERSION JSON -> JS
-//     const data = await response.json();
+    // CONVERSION JSON -> JS
+    const data = await response.json();
 
-//     // LIEU OU CHERCHER LES DATAS
-//     const dataFeatures = data.features;
-//     console.log(dataFeatures);
+    // LIEU OU CHERCHER LES DATAS
+    const dataFeatures = data.features;
+    console.log(dataFeatures);
 
-//     let arrProp = []
-//     for(object of dataFeatures){
-//         console.log(object.properties);
-
-//         arrProp.push(Object.values(object.properties));
-//         console.log(arrProp);
-//     }
-
-//     for(occurences of arrProp){
-//         if (adresse.value.includes(occurences)) {
-            
-//         }
+    for(object of dataFeatures){
+        // console.log(object.properties);
+        // console.log(inputSelect.value.toLowerCase());
+        // console.log(object.properties.name.toLowerCase());
         
+        
+        if (inputSelect.value.toLowerCase() === object.properties.name.toLowerCase()) {
 
-//     }
-
-
-//     // A CE STADE JE NE SUIS PAS CAPABLE DE REMPLIR LES CHAMPS : CODE POSTAL ET VILLE; EN FONCTION
-//     // DE LA DATALIST CHOISIE PAR L' UTILISATEUR.
-
+            // console.log("je suis ici");
+            
+            const datalist = document.querySelector("datalist")
+            const option = document.createElement("option")
+            datalist.appendChild(option)
+            option.value= object.properties.label;
+            option.textContent = object.properties.label;
     
-//     console.log(inputSelect);
-// }
+        }
+    }
+    adresse.value = object.properties.name;
+    codePostal.value = object.properties.postcode;
+    ville.value = object.properties.city;
+
+
+}
 
 
 

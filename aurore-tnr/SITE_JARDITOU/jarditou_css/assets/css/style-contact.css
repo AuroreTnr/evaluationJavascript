@@ -98,11 +98,11 @@ input[type="radio"], input[type="checkbox"] {
 
 
 /* STYLE DATALIST */
-/* #adresse{
+#input-select {
     width: 500px;
-    padding: 8px;
+    padding: 10px;
     background: transparent;
-} */
+}
 
 
 
