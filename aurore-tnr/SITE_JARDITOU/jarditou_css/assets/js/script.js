@@ -283,28 +283,33 @@ async function adresseAutoComplete() {
     const dataFeatures = data.features;
     console.log(dataFeatures);
 
+
+
     for(object of dataFeatures){
         // console.log(object.properties);
         // console.log(inputSelect.value.toLowerCase());
         // console.log(object.properties.name.toLowerCase());
         
-        
+        // CREATION DES OPTIONS DE LA DATALIST
         if (inputSelect.value.toLowerCase() === object.properties.name.toLowerCase()) {
 
-            // console.log("je suis ici");
             
             const datalist = document.querySelector("datalist")
             const option = document.createElement("option")
             datalist.appendChild(option)
-            option.value= object.properties.label;
-            option.textContent = object.properties.label;
     
+            option.value= `${object.properties.label}`;
+            option.textContent = `${object.properties.label}`;  
+            
         }
+
     }
-    adresse.value = object.properties.name;
+    
+    
+    // ATTRIBUTION DES VALEURS DES CHAMPS CODE POSTAL ET VILLE EN FONCTION DU CHAMPS CHOISI DANS LA DATALIST
+    adresse.value = inputSelect.value;
     codePostal.value = object.properties.postcode;
     ville.value = object.properties.city;
-
 
 }
 

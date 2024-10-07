@@ -104,7 +104,21 @@ input[type="radio"], input[type="checkbox"] {
     background: transparent;
 }
 
+/* DATALIST */
 
+.select-adresse {
+    position: absolute;
+    background-color: white;
+    border: 1px solid blue;
+    border-radius: 0 0 5px 5px;
+    border-top: none;
+    font-family: sans-serif;
+    width: 350px;
+    padding: 5px;
+    max-height: 10rem;
+    overflow-y: auto
+    
+}
 
 
 
